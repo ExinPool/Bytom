@@ -1,2 +1,3 @@
 # Bytom
-ExinPool in Mixin Ecosystem
+
+ExinPool in Bytom Ecosystem
