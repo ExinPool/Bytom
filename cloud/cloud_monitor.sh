@@ -15,12 +15,12 @@ source config.shlib
 # load configuration
 service="$(config_get SERVICE)"
 process_num="$(config_get PROCESS_NUM)"
-process_num_var=`curl -X POST http://${node_access_token}@${node_host}:9888/is-mining | grep true | wc -l`
 log_file="$(config_get LOG_FILE)"
 webhook_url="$(config_get WEBHOOK_URL)"
 access_token="$(config_get ACCESS_TOKEN)"
 node_host="$(config_get NODE_HOST)"
 node_access_token="$(config_get NODE_ACCESS_TOKEN)"
+process_num_var=`curl -X POST http://${node_access_token}@${node_host}:9888/is-mining | grep true | wc -l`
 
 if [ ${process_num} -eq ${process_num_var} ]
 then
