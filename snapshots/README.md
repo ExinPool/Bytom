@@ -41,7 +41,7 @@ Copy `config.cfg.defaults` to `config.cfg` and change some varibles like this in
 
 ``` bash
 SERVICE="Bytom Snapshots"
-BASE_DIR=/data/monitor/exinpool/Bytom/snapshots
+BASE_DIR=/data/monitor/exinpool/Bytom/snapshots/results
 LOG_FILE=snapshots.log
 WEBHOOK_URL=https://webhook.exinwork.com/api/send?access_token
 ACCESS_TOKEN=YOUR_ACCESS_TOKEN

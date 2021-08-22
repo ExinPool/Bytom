@@ -1,2 +1,2 @@
 .DS_Store
-snapshots/*.log
+snapshots/results/*.log
