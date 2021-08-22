@@ -50,7 +50,7 @@ ACCESS_TOKEN=YOUR_ACCESS_TOKEN
 Add crontab like this in the server.
 
 ``` bash
-# Bytom node process monitor
+# Bytom snapshots
 0 0 * * * cd /data/monitor/exinpool/Bytom/snapshots && bash bytom_snapshots.sh >> bytom_snapshots.log &
 ```
 
