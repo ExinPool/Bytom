@@ -20,6 +20,8 @@ process_num_var=`sudo netstat -langput | grep LISTEN | grep $process | wc -l`
 log_file="$(config_get LOG_FILE)"
 webhook_url="$(config_get WEBHOOK_URL)"
 access_token="$(config_get ACCESS_TOKEN)"
+node_host="$(config_get NODE_HOST)"
+node_access_token="$(config_get NODE_ACCESS_TOKEN)"
 
 if [ ${process_num} -eq ${process_num_var} ]
 then
@@ -38,4 +40,5 @@ else
         echo $log >> $log_file
     fi
     cd /data/bytom && bash start.sh
+    curl -X POST http://${node_access_token}@${node_host}:9888/set-mining -d '{"is_mining": true}'
 fi
