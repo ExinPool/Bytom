@@ -52,7 +52,7 @@ NODE_ACCESS_TOKEN=
 Add crontab like this in the server.
 
 ``` bash
-# Bytom node process monitor
+# Bytom node mining monitor
 * * * * * cd /data/monitor/exinpool/Bytom/cloud && bash cloud_monitor.sh >> cloud_monitor.log &
 ```
 
