@@ -51,7 +51,7 @@ Add crontab like this in the server.
 
 ``` bash
 # Bytom node process monitor
-* * * * * cd /data/monitor/exinpool/Bytom/snapshots && bash bytom_snapshots.sh >> bytom_snapshots.log &
+0 0 * * * cd /data/monitor/exinpool/Bytom/snapshots && bash bytom_snapshots.sh >> bytom_snapshots.log &
 ```
 
 The crontab will run every minute then you can check the log in the `bytom_snapshots.log`.
