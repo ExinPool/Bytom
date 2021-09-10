@@ -23,9 +23,9 @@ log_file="$(config_get LOG_FILE)"
 webhook_url="$(config_get WEBHOOK_URL)"
 access_token="$(config_get ACCESS_TOKEN)"
 
-local_blocks=`curl https://bcapi.movapi.com/blockmeta/bytom2/v1/block-headers\?start\=0\&limit\=20 | jq | grep ${local_host} -B 8 | grep height | head -1 | sed "s/\"//g" | sed "s/,//g" | awk -F': ' '{print $2}'`
-remote_first_blocks=`curl https://bcapi.movapi.com/blockmeta/bytom2/v1/block-headers\?start\=0\&limit\=20 | jq | grep ${remote_host_first} -B 8 | grep height | head -1 | sed "s/\"//g" | sed "s/,//g" | awk -F': ' '{print $2}'`
-remote_second_blocks=`curl https://bcapi.movapi.com/blockmeta/bytom2/v1/block-headers\?start\=0\&limit\=20 | jq | grep ${remote_host_second} -B 8 | grep height | head -1 | sed "s/\"//g" | sed "s/,//g" | awk -F': ' '{print $2}'`
+local_blocks=`curl https://bcapi.movapi.com/blockmeta/bytom2/v1/block-headers\?start\=0\&limit\=20 | jq . | grep ${local_host} -B 8 | grep height | head -1 | sed "s/\"//g" | sed "s/,//g" | awk -F': ' '{print $2}'`
+remote_first_blocks=`curl https://bcapi.movapi.com/blockmeta/bytom2/v1/block-headers\?start\=0\&limit\=20 | jq . | grep ${remote_host_first} -B 8 | grep height | head -1 | sed "s/\"//g" | sed "s/,//g" | awk -F': ' '{print $2}'`
+remote_second_blocks=`curl https://bcapi.movapi.com/blockmeta/bytom2/v1/block-headers\?start\=0\&limit\=20 | jq . | grep ${remote_host_second} -B 8 | grep height | head -1 | sed "s/\"//g" | sed "s/,//g" | awk -F': ' '{print $2}'`
 log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO local_blocks: ${local_blocks}, remote_first_blocks: ${remote_first_blocks}, remote_second_blocks: ${remote_second_blocks}"
 echo $log >> $log_file
 
